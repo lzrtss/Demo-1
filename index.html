@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo 1 | Elementary</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.css">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.js"></script>
+  <script src="https://www.chaijs.com/chai.js"></script>
+
+</head>
+
+<body>
+  <div id="mocha"></div>
+
+  <div class="container" id="main-container">
+
+    <!-- Navbar -->
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-task1-tab" data-toggle="pill" href="#pills-task1" role="tab" aria-controls="pills-task1"
+          aria-selected="true">Task 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task2-tab" data-toggle="pill" href="#pills-task2" role="tab" aria-controls="pills-task2"
+          aria-selected="false">Task 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task3-tab" data-toggle="pill" href="#pills-task3" role="tab" aria-controls="pills-task3"
+          aria-selected="false">Task 3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task4-tab" data-toggle="pill" href="#pills-task4" role="tab" aria-controls="pills-task4"
+          aria-selected="false">Task 4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task5-tab" data-toggle="pill" href="#pills-task5" role="tab" aria-controls="pills-task5"
+          aria-selected="false">Task 5</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task6-tab" data-toggle="pill" href="#pills-task6" role="tab" aria-controls="pills-task6"
+          aria-selected="false">Task 6</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-task7-tab" data-toggle="pill" href="#pills-task7" role="tab" aria-controls="pills-task7"
+          aria-selected="false">Task 7</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-tests-tab" href="./tests.html" role="tab" aria-controls="pills-tests"
+          aria-selected="false">Tests</a>
+      </li>
+    </ul>
+
+    <!-- Tabs for each task -->
+    <div class="tab-content" id="pills-tabContent">
+
+      <!-- Task 1: Chessboard -->
+      <div class="tab-pane fade show active" id="pills-task1" role="tabpanel" aria-labelledby="pills-task1-tab">
+        <h3 class="heading">Chessboard</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>Please enter <span class="strong-italic">width</span>, <span class="strong-italic">height</span> of
+                the chessboard and <span class="strong-italic">symbol</span> for fields representation and the app will
+                draw it.</p>
+              <p>Note: All 3 fields below should be filled. <span class="strong-italic">Width</span> and <span class="strong-italic">heigth</span>
+                value should be positive EVEN integers between 1 and 50. Only one-char <span class="strong-italic">symbols</span>
+                are allowed (* - GOOD, ** - BAD).</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="chess-width" placeholder="Enter width here">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="chess-height" placeholder="Enter height here">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control refresh-input" maxlength="10" id="chess-symbol" placeholder="Enter symbol here">
+                </div>
+                <button type="button" class="btn btn-success" id="chess-btn-draw">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="chess-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task1">Output:</label>
+                <textarea class="form-control" id="output-task1" rows="15"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 2: Envelopes Analisys -->
+      <div class="tab-pane fade" id="pills-task2" role="tabpanel" aria-labelledby="pills-task2-tab">
+        <h3 class="heading">Envelopes Analisys</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>We have 2 envelopes with the sides <span class="strong-italic">(a, b)</span> and <span class="strong-italic">(c,
+                  d)</span>. Please enter length of each mentioned side and the app will find out if it is possible
+                to put one envelope into another.</p>
+              <p>Note: All 4 fields below should be filled. Only <span class="strong-italic">positive</span> numbers
+                up to <span class="strong-italic">50</span> can be used as length values of envelopes sides.</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="env1-a" placeholder="Enter side A of envelope 1">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="env1-b" placeholder="Enter side B of envelope 1">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control refresh-input" maxlength="10" id="env2-c" placeholder="Enter side C of envelope 2">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control refresh-input" maxlength="10" id="env2-d" placeholder="Enter side D of envelope 2">
+                </div>
+                <button type="button" class="btn btn-success" id="envelopes-btn">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="envelopes-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task2">Output:</label>
+                <textarea class="form-control" id="output-task2" rows="15"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 3: Triangles Sorting-->
+      <div class="tab-pane fade" id="pills-task3" role="tabpanel" aria-labelledby="pills-task3-tab">
+        <h3 class="heading">Triangles Sorting</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>Please fill all the fields below with <span class="strong-italic">names</span> of the triangles and
+                each <span class="strong-italic">side length</span> and the app will sort them by the area (from the
+                biggest to the smallest).</p>
+              <p>Note: All the fields below should be filled. Only <span class="strong-italic">positive</span>
+                numbers can be used as length value for triangles sides. Each triangle should be <span class="strong-italic">valid</span>:
+                length of each
+                side should not be greater than the sum of two other sides</p>
+              <form class="input-form">
+                <!-- Triangle 1 -->
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-abc" maxlength="5" placeholder="ABC">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-a" maxlength="5" placeholder="a">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-b" maxlength="5" placeholder="b">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-c" maxlength="5" placeholder="c">
+                  </div>
+                </div>
+                <!-- Triangle 2 -->
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-def" maxlength="5" placeholder="DEF">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-d" maxlength="5" placeholder="d">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-e" maxlength="5" placeholder="e">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-f" maxlength="5" placeholder="f">
+                  </div>
+                </div>
+                <!-- Triangle 3 -->
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-ghi" maxlength="5" placeholder="GHI">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-g" maxlength="5" placeholder="g">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-h" maxlength="5" placeholder="h">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="triangle-i" maxlength="5" placeholder="i">
+                  </div>
+                </div>
+              </form>
+              <button type="button" class="btn btn-success" id="triangles-btn">Get Result</button>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task3">Output:</label>
+                <textarea class="form-control" id="output-task3" rows="20"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 4: Palindrome -->
+      <div class="tab-pane fade" id="pills-task4" role="tabpanel" aria-labelledby="pills-task4-tab">
+        <h3 class="heading">Palindrome</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>Please enter any number and the app will find palindrome inside it.</p>
+              <p>Note: Only integers are allowed. Number should contain of <span class="strong-italic">100 digits or
+                  less</span>.</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="110" class="form-control refresh-input" id="palindrome" placeholder="Enter your number">
+                </div>
+                <button type="button" class="btn btn-success" id="palindrome-btn">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="palindrome-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task2">Output:</label>
+                <textarea class="form-control" id="output-task4" rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 5: Lucky Tickets -->
+      <div class="tab-pane fade" id="pills-task5" role="tabpanel" aria-labelledby="pills-task5-tab">
+        <h3 class="heading">Lucky Tickets</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>There are two methods of defining lucky tickets: <span class="strong-italic">Simple</span> and <span
+                  class="strong-italic">Complex</span>. Please enter min and max ticket
+                numbers and the app will count number of lucky tickets using both
+                methods and find the winner.</p>
+              <p>Note: Only <span class="strong-italic">integers</span> between <span class="strong-italic">0</span>
+                and <span class="strong-italic">999999</span> are allowed.</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="min-ticket" placeholder="Enter min ticket: 0">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="max-ticket" placeholder="Enter max ticket: 999999">
+                </div>
+                <button type="button" class="btn btn-success" id="tickets-btn">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="tickets-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task2">Output:</label>
+                <textarea class="form-control" id="output-task5" rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 6: Number Sequence -->
+      <div class="tab-pane fade" id="pills-task6" role="tabpanel" aria-labelledby="pills-task6-tab">
+        <h3 class="heading">Number Sequence</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>Please enter <span class="strong-italic">length</span> of the number sequence and the <span class="strong-italic">check
+                  number</span> below.</p>
+              <p>Note: Only <span class="strong-italic">positive integers</span> are allowed. Length should be
+                between <span class="strong-italic">1</span> and <span class="strong-italic">100</span>, the
+                check
+                number should be between <span class="strong-italic">1</span> and
+                <span class="strong-italic">1000000</span>.</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="sequence-length" placeholder="Enter sequence length">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="sequence-start" placeholder="Enter check number">
+                </div>
+                <button type="button" class="btn btn-success" id="sequence-btn">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="sequence-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task2">Output:</label>
+                <textarea class="form-control" id="output-task6" rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 7: Fibonacci Sequence -->
+      <div class="tab-pane fade" id="pills-task7" role="tabpanel" aria-labelledby="pills-task7-tab">
+        <h3 class="heading">Fibonacci Sequence</h3>
+        <br>
+        <div class="container content-container">
+          <div class="content-block row">
+            <div class="col-md-6 col-sm-12">
+              <p>Please enter <span class="strong-italic">min</span> and <span class="strong-italic">max</span> numbers
+                <span class="strong-italic">OR length</span> of the sequence and the app
+                will find Fibonacci number sequence in mentioned range.</p>
+              <p>Note: Only <span class="strong-italic">positive integers</span>
+                are allowed. Length value should
+                be
+                between <span class="strong-italic">1</span> and <span class="strong-italic">100</span>, min and max
+                numbers should be between <span class="strong-italic">1</span> and <span class="strong-italic">1000000</span>.
+                Max
+                number should be <span class="strong-italic">greater</span> than min number</p>
+              <form class="input-form">
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="fibo-min" placeholder="Enter min number">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="fibo-max" placeholder="Enter max number">
+                </div>
+                <div class="form-group">
+                  <input type="text" maxlength="10" class="form-control refresh-input" id="fibo-length" placeholder="Or enter sequence length">
+                </div>
+                <button type="button" class="btn btn-success" id="fibo-btn">Get Result</button>
+                <!-- <button type="button" class="btn btn-warning" id="fibo-btn-refresh">Refresh</button> -->
+              </form>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="output-task2">Output:</label>
+                <textarea class="form-control" id="output-task7" rows="12"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>

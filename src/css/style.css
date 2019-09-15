@@ -1,0 +1,27 @@
+body {
+  background: #18435A;
+}
+
+.btn {
+  margin: 1.5rem 0;
+}
+
+#main-container {
+  padding: 1.5rem;
+  min-height: 85vh;
+  border-radius: 5px;
+  background: #fff;
+}
+
+#chessboard-content-block textarea {
+  padding-left: 1rem;
+}
+
+.input-form {
+  margin-top: 2rem;
+}
+
+.strong-italic {
+  font-weight: 600;
+  font-style: italic;
+}
