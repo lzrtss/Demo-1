@@ -63,6 +63,7 @@ document.querySelector('#envelopes-btn').addEventListener('click', () => {
 
 // Task 3: Triangles Sorting
 document.querySelector('#triangles-btn').addEventListener('click', () => {
+  // FIXME: add +/- button to clone inputs
   // Triangle1
   const ABC = document.querySelector('#triangle-abc').value;
   const sideA = Number(document.querySelector('#triangle-a').value);
@@ -84,6 +85,16 @@ document.querySelector('#triangles-btn').addEventListener('click', () => {
   const obj3 = { vertices: GHI, g: sideG, h: sideH, i: sideI };
 
   const trianglesOutput = document.querySelector('#output-task3');
+
+  // FEXME: make correct condition
+  if (
+    !ABC || !DEF || !GHI || !sideA || !sideB || !sideC || !sideD
+    || !sideE || !sideF || !sideG || !sideH || !sideI
+  ) {
+    trianglesOutput.style = 'color:red; border-color:red';
+    trianglesOutput.innerHTML = 'Missing or wrong argument(s): Argument - an array containing from 3 objects. Each object should have 4 properties: vertices and each side, named after its corresponding vertice. Name of each side should be mentioned in \'vertices\' property in uppercase. Also each triangle should be valid: each side should not be greater than sum of two other sides.';
+  }
+
   const result = task3([obj1, obj2, obj3]);
   if (result.reason) {
     trianglesOutput.style = 'color:red; border-color:red';
