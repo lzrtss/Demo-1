@@ -43,7 +43,7 @@ export const task1 = function drawChessBoard(height, width, symbol) {
   } else if (validationStatus === 'wrongValue') {
     return {
       status: 'failed',
-      reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+      reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
     }
   }
 
