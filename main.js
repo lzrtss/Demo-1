@@ -176,8 +176,6 @@ document.querySelector('#fibo-btn').addEventListener('click', () => {
   const [min, max, length,] = [fiboMin, fiboMax, fiboLength,];
   const arg = { min, max, length };
 
-  console.log(arg);
-
   const result = task7(arg);
   if (result.reason) {
     fiboOutput.style = 'color:red; border-color:red';

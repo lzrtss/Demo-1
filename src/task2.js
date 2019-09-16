@@ -19,13 +19,10 @@ const isValid = function checkArgs(env1, env2, ) {
 // Checks if it is posiible to put one envelope inside another without rotation
 const noRotation = function putWithoutRotation(width1, height1, width2, height2, ) {
   if (width1 > width2 && height1 > height2) {
-    console.log('Second envelope can be put inside first');
     return 2;
   } else if (width1 < width2 && height1 < height2) {
-    console.log('First envelope can be put inside second');
     return 1;
   }
-
   return false;
 }
 
@@ -43,10 +40,8 @@ const rotation = function putWithRotation(width1, height1, width2, height2, ) {
     const xHypotenuse = Math.sqrt(x1 ** 2 + x2 ** 2);
 
     if (xHypotenuse >= height2) {
-      console.log('Second envelope can be put inside first');
       return 2;
     }
-    console.log('Impossible');
     return 0;
   }
 
@@ -59,10 +54,8 @@ const rotation = function putWithRotation(width1, height1, width2, height2, ) {
     const xHypotenuse = Math.sqrt(x1 ** 2 + x2 ** 2);
 
     if (xHypotenuse >= height1) {
-      console.log('First envelope can be put inside second');
       return 1;
     }
-    console.log('Impossible');
     return 0;
   }
 }
@@ -100,8 +93,6 @@ export const task2 = function checkEnvelope(env1, env2) {
     if (result) {
       return result;
     }
-
-    console.log('Impossible');
     return 0;
   }
 
