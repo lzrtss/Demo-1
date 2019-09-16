@@ -38,7 +38,7 @@ export default function makeTests1() {
         chai.assert.deepEqual(task1(6.5, 6, '*'),
           {
             status: 'failed',
-            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
           });
       });
 
@@ -46,7 +46,7 @@ export default function makeTests1() {
         chai.assert.deepEqual(task1(5, 5, '*'),
           {
             status: 'failed',
-            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
           });
       });
 
@@ -54,7 +54,7 @@ export default function makeTests1() {
         chai.assert.deepEqual(task1(-6, 6, '*'),
           {
             status: 'failed',
-            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
           });
       });
 
@@ -62,7 +62,7 @@ export default function makeTests1() {
         chai.assert.deepEqual(task1(100, 100, '*'),
           {
             status: 'failed',
-            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
           });
       });
 
@@ -70,7 +70,7 @@ export default function makeTests1() {
         chai.assert.deepEqual(task1(10, 10, '**'),
           {
             status: 'failed',
-            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 1 and 50; 3d argument should contain of 1 symbol inside quotes.',
+            reason: 'Wrong value of argument(s). 1st and 2d arguments should be EVEN integers between 2 and 50; 3d argument should contain of 1 symbol inside quotes.',
           });
       });
 
