@@ -6,11 +6,11 @@ export default function makeTests6() {
 
     describe('Tests with valid numbers', () => {
 
-      it('Successful execution with arguments 7 and 60 => \'8, 9, 10, 11, 12, 13, 14\'', () => {
+      it('Success: (7, 60) => \'8, 9, 10, 11, 12, 13, 14\'', () => {
         chai.assert.deepEqual(task6(7, 60), '8, 9, 10, 11, 12, 13, 14');
       });
 
-      it('Successful execution with arguments 1 and 100 => \'11\'', () => {
+      it('Success: (1, 100) => \'11\'', () => {
         chai.assert.deepEqual(task6(1, 110), '11');
       });
 
@@ -18,7 +18,7 @@ export default function makeTests6() {
 
     describe('Tests with invalid numbers', () => {
 
-      it('Should throw \'Wrong data type\' error (1st argument - String)', () => {
+      it('Error: Throws \'Wrong data type\' error - 1st argument - String (\'7\', 60)', () => {
         chai.assert.deepEqual(task6('7', 60),
           {
             status: 'failed',
@@ -26,7 +26,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Wrong data type\' error (2d argument - String)', () => {
+      it('Error: Throws \'Wrong data type\' error - 2d argument - String (7, \'60\')', () => {
         chai.assert.deepEqual(task6(7, '60'),
           {
             status: 'failed',
@@ -34,7 +34,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (1st argument is out of range (1-100))', () => {
+      it('Error: Throws \'Wrong value\' error - 1st argument is out of range 1-100 (150, 25)', () => {
         chai.assert.deepEqual(task6(150, 25),
           {
             status: 'failed',
@@ -42,7 +42,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (2d number is 0)', () => {
+      it('Error: Throws \'Wrong value\' error - 2d argument is 0 (5, 0)', () => {
         chai.assert.deepEqual(task6(5, 0),
           {
             status: 'failed',
@@ -50,7 +50,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (1st number is 0)', () => {
+      it('Error: Throws \'Wrong value\' error - 1st argument is 0 (0, 50)', () => {
         chai.assert.deepEqual(task6(0, 50),
           {
             status: 'failed',
@@ -58,7 +58,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (2d number is negative)', () => {
+      it('Error: Throws \'Wrong value\' error - 2d argument is a negative number (5, -50)', () => {
         chai.assert.deepEqual(task6(5, -50),
           {
             status: 'failed',
@@ -70,7 +70,7 @@ export default function makeTests6() {
 
     describe('Tests with missing numbers', () => {
 
-      it('Should throw \'Missing argument(s)\' error (run without arguments)', () => {
+      it('Error: Throws \'Missing argument(s)\' error - runs without arguments ()', () => {
         chai.assert.deepEqual(task6(),
           {
             status: 'failed',
@@ -78,7 +78,7 @@ export default function makeTests6() {
           });
       });
 
-      it('Should throw \'Missing argument(s)\' error (run with 1 arguments)', () => {
+      it('Error: Throws \'Missing argument(s)\' error - runs with 1 argument (25)', () => {
         chai.assert.deepEqual(task6(25),
           {
             status: 'failed',

@@ -6,15 +6,15 @@ export default function makeTests7() {
 
     describe('Tests with valid arguments', () => {
 
-      it('Successfull execution with arguments: should return Fibonacci sequence between numbers 4 and 35 => returns  [5, 8, 13, 21, 34]', () => {
+      it('Success: returns Fibonacci sequence between numbers 4 and 35 => [5, 8, 13, 21, 34]', () => {
         chai.assert.deepEqual(task7({ min: 4, max: 35, }), [5, 8, 13, 21, 34]);
       });
 
-      it('Successfull execution with arguments: should return Fibonacci sequence between numbers 4 and 35 => returns  [5, 8, 13, 21, 34]', () => {
+      it('Success: returns Fibonacci sequence between numbers 100 and 10000 => [144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]', () => {
         chai.assert.deepEqual(task7({ min: 100, max: 10000, }), [144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]);
       });
 
-      it('Successfull execution with arguments: should return Fibonacci sequence of 10 integers => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]', () => {
+      it('Success: returns Fibonacci sequence of 10 integers => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]', () => {
         chai.assert.deepEqual(task7({ length: 10, }), [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
       });
 
@@ -22,7 +22,7 @@ export default function makeTests7() {
 
     describe('Tests with invalid arguments', () => {
 
-      it('Should throw \'Wrong value\' error (one argument has value \'NaN\')', () => {
+      it('Error: Throws \'Wrong value\' error - one argument has value \'NaN\' ({ min: NaN, max: 35, })', () => {
         chai.assert.deepEqual(task7({ min: NaN, max: 35, }),
           {
             status: 'failed',
@@ -30,7 +30,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (one argument\'s value is negative number)', () => {
+      it('Error: Throws \'Wrong value\' error - one property has value as a negative number ({ min: -1, max: 35 })', () => {
         chai.assert.deepEqual(task7({ min: -1, max: 35 }),
           {
             status: 'failed',
@@ -39,7 +39,7 @@ export default function makeTests7() {
       });
 
 
-      it('Should throw \'Wrong value\' error (length = 0)', () => {
+      it('Error: Throws \'Wrong value\' error - length = 0 ({ length: 0, })', () => {
         chai.assert.deepEqual(task7({ length: 0, }),
           {
             status: 'failed',
@@ -47,7 +47,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (one argument\'s value is greater than 1 000 000)', () => {
+      it('Error: Throws \'Wrong value\' error - one property\'s value is greater than 1 000 000 ({ min: 10, max: 10000000 })', () => {
         chai.assert.deepEqual(task7({ min: 10, max: 10000000 }),
           {
             status: 'failed',
@@ -55,7 +55,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (one argument\'s value is float number)', () => {
+      it('Error: Throws \'Wrong value\' error - one property\'s value is float number ({ min: 10.5, max: 1000 })', () => {
         chai.assert.deepEqual(task7({ min: 10.5, max: 1000 }),
           {
             status: 'failed',
@@ -63,7 +63,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (value of \'min\' argument greater than value of \'max\' argument)', () => {
+      it('Error: Throws \'Wrong value\' error - value of \'min\' property is greater than value of \'max\' property ({ min: 1000, max: 10 })', () => {
         chai.assert.deepEqual(task7({ min: 1000, max: 10 }),
           {
             status: 'failed',
@@ -71,7 +71,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (called with an array as argument)', () => {
+      it('Error: Throws \'Wrong value\' error - runs with an array as argument ([1000, 10])', () => {
         chai.assert.deepEqual(task7([1000, 10]),
           {
             status: 'failed',
@@ -83,7 +83,7 @@ export default function makeTests7() {
 
     describe('Tests with missing arguments', () => {
 
-      it('Should throw \'Wrong value\' error (called without arguments)', () => {
+      it('Error: Throws \'Wrong value\' error - runs without arguments ()', () => {
         chai.assert.deepEqual(task7(),
           {
             status: 'failed',
@@ -91,7 +91,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (called with empty object - {})', () => {
+      it('Error: Throws \'Wrong value\' error - runs with an empty object ({})', () => {
         chai.assert.deepEqual(task7({}),
           {
             status: 'failed',
@@ -99,7 +99,7 @@ export default function makeTests7() {
           });
       });
 
-      it('Should throw \'Wrong value\' error (called with 1 missing argument)', () => {
+      it('Error: Throws \'Wrong value\' error - 1 missing property ({ min: 25 })', () => {
         chai.assert.deepEqual(task7({ min: 25 }),
           {
             status: 'failed',
@@ -110,6 +110,5 @@ export default function makeTests7() {
     });
 
   })
-
 
 }

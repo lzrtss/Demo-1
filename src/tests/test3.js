@@ -6,14 +6,14 @@ export default function makeTests3() {
 
     describe('Tests with valid arguments', () => {
 
-      it('Successfully sorts an array of 2 triangles by name', () => {
+      it('Success: Sorts array of 2 triangles by name. [\'CDE\', \'ABC\']', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 12.36 },
           { vertices: 'CDE', c: 13, d: 14, e: 15.36 },
         ]), ['CDE', 'ABC']);
       });
 
-      it('Successfully sorts an array of 3 triangles by name', () => {
+      it('Success: Sorts array of 3 triangles by name. [\'ABC\', \'CDE\', \'FGH\']', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 15, b: 16, c: 18.36 },
           { vertices: 'CDE', c: 13, d: 14, e: 15.36 },
@@ -21,7 +21,7 @@ export default function makeTests3() {
         ]), ['ABC', 'CDE', 'FGH']);
       });
 
-      it('Successfully sorts an array of 4 triangles by name', () => {
+      it('Success: Sorts array of 4 triangles by name, [\'FGH\', \'ABC\', \'IJK\', \'CDE\']', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 12.36 },
           { vertices: 'CDE', c: 8, d: 8, e: 7 },
@@ -30,7 +30,7 @@ export default function makeTests3() {
         ]), ['FGH', 'ABC', 'IJK', 'CDE']);
       });
 
-      it('Successfully sorts an array of 5 triangles by name', () => {
+      it('Success: Sorts array of 5 triangles by name, [\'IJK\', \'FGH\', \'ABC\', \'CDE\', \'LMN\']', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 12.36 },
           { vertices: 'CDE', c: 8, d: 8, e: 7 },
@@ -44,14 +44,14 @@ export default function makeTests3() {
 
     describe('Tests with invalid or missing arguments', () => {
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of empty array', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of missing array. ()', () => {
         chai.assert.deepEqual(task3(), {
           status: 'failed',
           reason: 'Missing or wrong argument(s): Argument - an array containing from 2 to 5 objects. Each object should have 4 properties: vertices (value should be a String) and each side, named after its corresponding vertice (values should be Number). Name of each side should be mentioned in \'vertices\' property in uppercase. Also each triangle should be valid: each side should not be greater than sum of two other sides. Example of triangle object: { vertices: \'CDF\', c: 10, d: 11, f: 12.5, }',
         });
       });
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of incorrect side names (not equal to vertices: { vertices: \'CDE\', a: 13, b: 14, c: 15.36 })', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of incorrect side names (not equal to vertices: { vertices: \'CDE\', a: 13, b: 14, c: 15.36 })', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 12.36 },
           { vertices: 'CDE', a: 13, b: 14, c: 15.36 },
@@ -61,7 +61,7 @@ export default function makeTests3() {
           });
       });
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of wrong data type of side value(s) ({ vertices: \'ABC\', a: \'10\', b: 11, c: 12.36 })', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of wrong data type of side value(s) ({ vertices: \'ABC\', a: \'10\', b: 11, c: 12.36 })', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: '10', b: 11, c: 12.36 },
           { vertices: 'CDE', a: 13, b: 14, c: 15.36 },
@@ -71,7 +71,7 @@ export default function makeTests3() {
           });
       });
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of invalid triangle(s) - each side should not be greater than sum of two other sides ({ vertices: \'ABC\', a: 10, b: 22, c: 10.36 })', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of invalid triangle(s) - each side should not be greater than sum of two other sides ({ vertices: \'ABC\', a: 10, b: 22, c: 10.36 })', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 22, c: 10.36 },
           { vertices: 'CDE', a: 13, b: 14, c: 15.36 },
@@ -81,7 +81,7 @@ export default function makeTests3() {
           });
       });
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of using single triangle (should be 2-5)', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of using single triangle (should be 2-5)', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 10.36 },
         ]), {
@@ -90,7 +90,7 @@ export default function makeTests3() {
           });
       });
 
-      it('Should throw \'Missing or wrong argument(s)\' error because of using more than 5 triangles (should be 2-5)', () => {
+      it('Error: Throws \'Missing or wrong argument(s)\' error because of using 11 triangles (should be 2-5)', () => {
         chai.assert.deepEqual(task3([
           { vertices: 'ABC', a: 10, b: 11, c: 12.36 },
           { vertices: 'CDE', c: 8, d: 8, e: 7 },
