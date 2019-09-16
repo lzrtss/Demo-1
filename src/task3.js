@@ -10,7 +10,7 @@ const isValidObj = function checkEachObj(obj) {
     && typeof obj[a] === 'number'
     && typeof obj[b] === 'number'
     && typeof obj[c] === 'number'
-    // checking if each side is shorter than 2 other sides sum
+    // Checking if each side is shorter than 2 other sides sum
     && obj[a] + obj[b] > obj[c]
     && obj[a] + obj[c] > obj[b]
     && obj[b] + obj[c] > obj[a]
