@@ -5,6 +5,7 @@ import { task4 } from './src/task4.js';
 import { task5 } from './src/task5.js';
 import { task6 } from './src/task6.js';
 import { task7 } from './src/task7.js';
+import { addSuccessClass, addErrorClass, clearInputs } from './utilities/utilities_main.js';
 
 // Task 1: Chessboard
 document.querySelector('#chess-btn-draw').addEventListener('click', () => {
@@ -15,16 +16,16 @@ document.querySelector('#chess-btn-draw').addEventListener('click', () => {
 
   const result = task1(chessWidth, chessHeight, chessSymbol);
   if (result.reason) {
-    chessOutput.style = 'color:red; border-color:red';
+    // chessOutput.style = 'color:red; border-color:red';
+    addErrorClass(chessOutput);
     chessOutput.innerHTML = result.reason;
   } else {
-    chessOutput.style = 'border-color:green';
+    // chessOutput.style = 'border-color:green';
+    addSuccessClass(chessOutput);
     chessOutput.innerHTML = result;
   }
 
-  document.querySelector('#chess-width').value = '';
-  document.querySelector('#chess-height').value = '';
-  document.querySelector('#chess-symbol').value = '';
+  clearInputs(['#chess-width', '#chess-height', '#chess-symbol']);
 });
 
 // Task 2: Envelopes Analisys
@@ -39,26 +40,23 @@ document.querySelector('#envelopes-btn').addEventListener('click', () => {
 
   let result = task2({ a, b }, { c, d });
   if (result.reason) {
-    envOutput.style = 'color:red; border-color:red';
+    addErrorClass(envOutput);
     envOutput.innerHTML = result.reason;
   } else if (result === 0) {
     result = 'Mentioned envelops cannot be put inside of each other';
-    envOutput.style = 'border-color:green';
+    addSuccessClass(envOutput);
     envOutput.innerHTML = result;
   } else if (result === 1) {
     result = 'First envelop (with sides \'a\' and \'b\') can be put inside the second one';
-    envOutput.style = 'border-color:green';
+    addSuccessClass(envOutput);
     envOutput.innerHTML = result;
   } else if (result === 2) {
     result = 'Second envelop (with sides \'c\' and \'d\') can be put inside the first one';
-    envOutput.style = 'border-color:green';
+    addSuccessClass(envOutput);
     envOutput.innerHTML = result;
   }
 
-  document.querySelector('#env1-a').value = '';
-  document.querySelector('#env1-b').value = '';
-  document.querySelector('#env2-c').value = '';
-  document.querySelector('#env2-d').value = '';
+  clearInputs(['#env1-a', '#env1-b', '#env2-c', '#env2-d']);
 });
 
 // Task 3: Triangles Sorting
@@ -91,18 +89,20 @@ document.querySelector('#triangles-btn').addEventListener('click', () => {
     !ABC || !DEF || !GHI || !sideA || !sideB || !sideC || !sideD
     || !sideE || !sideF || !sideG || !sideH || !sideI
   ) {
-    trianglesOutput.style = 'color:red; border-color:red';
+    addErrorClass(trianglesOutput);
     trianglesOutput.innerHTML = 'Missing or wrong argument(s): Argument - an array containing from 3 objects. Each object should have 4 properties: vertices and each side, named after its corresponding vertice. Name of each side should be mentioned in \'vertices\' property in uppercase. Also each triangle should be valid: each side should not be greater than sum of two other sides.';
   }
 
   const result = task3([obj1, obj2, obj3]);
   if (result.reason) {
-    trianglesOutput.style = 'color:red; border-color:red';
+    addErrorClass(trianglesOutput);
     trianglesOutput.innerHTML = result.reason;
   } else {
-    trianglesOutput.style = 'border-color:green';
+    addSuccessClass(trianglesOutput);
     trianglesOutput.innerHTML = result;
   }
+
+  clearInputs(['#triangle-a', '#triangle-b', '#triangle-c', '#triangle-d', '#triangle-e', '#triangle-f', '#triangle-g', '#triangle-h', '#triangle-i']);
 });
 
 // Task 4: Palindrome
@@ -111,15 +111,15 @@ document.querySelector('#palindrome-btn').addEventListener('click', () => {
   const palindromeOutput = document.querySelector('#output-task4');
 
   const result = task4(palindromeNum);
-  if (result instanceof Object) {
-    palindromeOutput.style = 'color:red; border-color:red';
+  if (result.reason) {
+    addErrorClass(palindromeOutput);
     palindromeOutput.innerHTML = result.reason;
   } else {
-    palindromeOutput.style = 'border-color:green';
+    addSuccessClass(palindromeOutput);
     palindromeOutput.innerHTML = result;
   }
 
-  document.querySelector('#palindrome').value = '';
+  clearInputs(['#palindrome']);
 });
 
 // Task 5: Lucky Tickets
@@ -133,10 +133,10 @@ document.querySelector('#tickets-btn').addEventListener('click', () => {
 
   const result = task5(arg);
   if (result.reason) {
-    ticketsOutput.style = 'color:red; border-color:red';
+    addErrorClass(ticketsOutput);
     ticketsOutput.innerHTML = result.reason;
   } else {
-    ticketsOutput.style = 'border-color:green';
+    addSuccessClass(ticketsOutput);
     ticketsOutput.innerHTML = `
     WinMethod: ${result.winMethod}
     SimpleCount: ${result.simpleCount}
@@ -155,15 +155,14 @@ document.querySelector('#sequence-btn').addEventListener('click', () => {
 
   const result = task6(sequenceLength, sequenceStart);
   if (result.reason) {
-    sequenceOutput.style = 'color:red; border-color:red';
+    addErrorClass(sequenceOutput);
     sequenceOutput.innerHTML = result.reason;
   } else {
-    sequenceOutput.style = 'border-color:green';
+    addSuccessClass(sequenceOutput);
     sequenceOutput.innerHTML = result;
   }
 
-  document.querySelector('#sequence-length').value = '';
-  document.querySelector('#sequence-start').value = '';
+  clearInputs(['#sequence-length', '#sequence-start']);
 });
 
 // Task 7: Fibonacci Sequence
@@ -178,14 +177,12 @@ document.querySelector('#fibo-btn').addEventListener('click', () => {
 
   const result = task7(arg);
   if (result.reason) {
-    fiboOutput.style = 'color:red; border-color:red';
+    addErrorClass(fiboOutput);
     fiboOutput.innerHTML = result.reason;
   } else {
-    fiboOutput.style = 'border-color:green';
+    addSuccessClass(fiboOutput);
     fiboOutput.innerHTML = result;
   }
 
-  document.querySelector('#fibo-min').value = '';
-  document.querySelector('#fibo-max').value = '';
-  document.querySelector('#fibo-length').value = '';
+  clearInputs(['#fibo-min', '#fibo-max', '#fibo-length']);
 });

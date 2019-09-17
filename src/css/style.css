@@ -25,3 +25,13 @@ body {
   font-weight: 600;
   font-style: italic;
 }
+
+.withError {
+  color: red;
+  border-color: red;
+}
+
+.successful {
+  color: #333;
+  border-color: green;
+}
