@@ -143,8 +143,7 @@ document.querySelector('#tickets-btn').addEventListener('click', () => {
     ComplexCount: ${result.complexCount}`;
   }
 
-  document.querySelector('#min-ticket').value = '';
-  document.querySelector('#max-ticket').value = '';
+  clearInputs(['#min-ticket', '#max-ticket']);
 });
 
 // Task 6: Number Sequence
