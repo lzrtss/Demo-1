@@ -1,3 +1,5 @@
+import { isValidTask5 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task5(obj) {
   if (isValid(obj)) {
     const [start, end] = [Number(obj.min), Number(obj.max)];
@@ -71,19 +73,4 @@ function isLuckyComplex(str) {
   }
 
   return oddSum === evenSum;
-}
-
-// Validation function
-function isValid(obj = {}) {
-  if (
-    typeof obj === 'object' && obj instanceof Object
-    && typeof obj.min === 'number' && Number.isInteger(obj.min)
-    && typeof obj.max === 'number' && Number.isInteger(obj.max)
-    && obj.min >= 0 && obj.max > 0 && obj.min <= obj.max
-    && String(obj.min).length <= 6 && String(obj.max).length <= 6
-  ) {
-    return true;
-  }
-
-  return false;
 }

@@ -1,3 +1,5 @@
+import { isValidTask1 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task1(height, width, symbol) {
   const validationStatus = isValid(height, width, symbol);
 
@@ -33,32 +35,4 @@ export function task1(height, width, symbol) {
   }
 
   return chessBoard;
-}
-
-// Validation function
-function isValid(height, width, symbol) {
-  const maxHeight = 50;
-  const maxWidth = 50;
-  const maxSymLength = 1;
-
-  if (!height || !width || !symbol) {
-    return 'missingArgs';
-  }
-
-  if (
-    typeof height !== 'number'
-    || typeof width !== 'number'
-    || typeof symbol !== 'string'
-  ) {
-    return 'wrongDataType';
-  }
-
-  if (
-    height < 0 || height > maxHeight || !Number.isInteger(height)
-    || width < 0 || width > maxWidth || !Number.isInteger(width)
-    || height % 2 !== 0 || width % 2 !== 0
-    || symbol.length > maxSymLength
-  ) {
-    return 'wrongValue';
-  }
 }

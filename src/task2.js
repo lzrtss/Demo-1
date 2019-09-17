@@ -1,3 +1,5 @@
+import { isValidTask2 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task2(env1, env2) {
   if (isValid(env1, env2)) {
     let width1;
@@ -80,22 +82,4 @@ function rotation(width1, height1, width2, height2, ) {
     }
     return 0;
   }
-}
-
-// Validation function
-function isValid(env1, env2, ) {
-  if (
-    typeof env1 === 'object' && env1 instanceof Object
-    && typeof env2 === 'object' && env2 instanceof Object
-    && typeof env1.a === 'number' && typeof env1.b === 'number'
-    && typeof env2.c === 'number' && typeof env2.d === 'number'
-    && env1.a > 0 && env1.a <= 50
-    && env1.b > 0 && env1.b <= 50
-    && env2.c > 0 && env2.c <= 50
-    && env2.d > 0 && env2.d <= 50
-  ) {
-    return true;
-  }
-
-  return false;
 }

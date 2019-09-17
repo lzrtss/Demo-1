@@ -1,3 +1,5 @@
+import { isValidTask3 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task3(trianglesArr = []) {
   if (isValid(trianglesArr)) {
     const valuesArr = [];
@@ -25,36 +27,4 @@ function getArea(trianglesArr) {
   const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
   return { name, area, };
-}
-
-// Validation function for objects
-function isValidObj(obj) {
-  const a = obj.vertices[0].toLowerCase();
-  const b = obj.vertices[1].toLowerCase();
-  const c = obj.vertices[2].toLowerCase();
-
-  return (
-    typeof obj === 'object' && obj instanceof Object
-    && typeof obj.vertices === 'string'
-    && typeof obj[a] === 'number'
-    && typeof obj[b] === 'number'
-    && typeof obj[c] === 'number'
-    // Checking if each side is shorter than 2 other sides sum
-    && obj[a] + obj[b] > obj[c]
-    && obj[a] + obj[c] > obj[b]
-    && obj[b] + obj[c] > obj[a]
-  )
-}
-
-// Validation function for array
-function isValid(trianglesArr) {
-  if (Array.isArray(trianglesArr)
-    && trianglesArr.length > 1
-    && trianglesArr.length <= 5) {
-    if (trianglesArr.every(obj => isValidObj(obj))) {
-      return true;
-    }
-  }
-
-  return false;
 }

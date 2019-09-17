@@ -1,3 +1,5 @@
+import { isValidTask6 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task6(sequenceLength, squaredNum) {
   let validationStatus = isValid(sequenceLength, squaredNum);
 
@@ -26,25 +28,4 @@ export function task6(sequenceLength, squaredNum) {
 
     return numSequence.join(', ');
   }
-}
-
-// Validation function
-function isValid(sequenceLength, squaredNum) {
-  const maxSequenceLength = 100;
-
-  if (!sequenceLength && sequenceLength !== 0
-    || !squaredNum && squaredNum !== 0) {
-    return 'missingArgs';
-  }
-
-  if (typeof sequenceLength !== 'number' || typeof squaredNum !== 'number') {
-    return 'wrongDataType';
-  }
-
-  if (sequenceLength <= 0 || sequenceLength > maxSequenceLength
-    || !Number.isInteger(sequenceLength) || squaredNum <= 0) {
-    return 'invalidNum';
-  }
-
-  return 'valid';
 }

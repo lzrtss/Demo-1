@@ -1,3 +1,5 @@
+import { isValidTask4 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task4(num) {
   const validationStatus = isValid(num);
 
@@ -57,23 +59,4 @@ function isPalindrome(arr) {
   }
 
   return true;
-}
-
-// Validation function
-function isValid(num) {
-  const maxLength = 100;
-
-  if (!num && num !== null && num !== 0 && !Number.isNaN(num)) {
-    return 'missingArgs';
-  }
-
-  if (typeof num !== 'string') {
-    return 'wrongDataType';
-  }
-
-  if (!Number(num) || num.length > maxLength) {
-    return 'invalidValue';
-  }
-
-  return 'valid';
 }

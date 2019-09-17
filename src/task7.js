@@ -1,3 +1,5 @@
+import { isValidTask7 as isValid } from '../utilities/validations_for_tasks.js';
+
 export function task7(obj) {
   const validationStatus = isValid(obj);
 
@@ -66,41 +68,4 @@ function getFiboLength(length) {
   }
 
   return fibArr;
-}
-
-// Validation function
-function isValid(obj) {
-  const minValue = 0;
-  const maxValue = 1000000;
-  const maxLength = 100;
-
-  if (!obj || obj.hasOwnProperty('min') && !obj.hasOwnProperty('max')
-    || obj.hasOwnProperty('max') && !obj.hasOwnProperty('min')
-    || !obj.hasOwnProperty('max') && !obj.hasOwnProperty('min')
-    && !obj.hasOwnProperty('length') || !obj.hasOwnProperty('min')
-    && !obj.hasOwnProperty('max') && !obj.hasOwnProperty('length')
-    || obj.min === 0 && obj.max === 0 && obj.length === 0) {
-    return 'missingArgs';
-  }
-
-  if (typeof obj !== 'object' || !(obj.constructor === Object)) {
-    return 'wrongDataType';
-  }
-
-  if (obj.min < minValue || obj.min > maxValue
-    || obj.max < minValue || obj.max > maxValue
-    || obj.length < minValue || obj.length > maxLength
-    || obj.min > obj.max
-    || obj.hasOwnProperty('min') && !Number.isInteger(obj.min)
-    || obj.hasOwnProperty('max') && !Number.isInteger(obj.max)
-    || obj.hasOwnProperty('length') && !Number.isInteger(obj.length)
-    || obj.hasOwnProperty('min') && Number.isNaN(obj.min)
-    || obj.hasOwnProperty('max') && Number.isNaN(obj.max)
-    || obj.hasOwnProperty('length') && Number.isNaN(obj.length)
-    || !obj.hasOwnProperty('min') && !obj.hasOwnProperty('max')
-    && obj.length === 0 || obj.min === 0 && obj.max !== 0) {
-    return 'wrongValue';
-  }
-
-  return 'valid';
 }
