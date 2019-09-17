@@ -10,12 +10,20 @@ export default function makeTests7() {
         chai.assert.deepEqual(task7({ min: 4, max: 35, }), [5, 8, 13, 21, 34]);
       });
 
+      it('Success: returns Fibonacci sequence between numbers 200 and 600 => [233, 377]', () => {
+        chai.assert.deepEqual(task7({ min: 200, max: 600, }), [233, 377]);
+      });
+
       it('Success: returns Fibonacci sequence between numbers 100 and 10000 => [144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]', () => {
         chai.assert.deepEqual(task7({ min: 100, max: 10000, }), [144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]);
       });
 
-      it('Success: returns Fibonacci sequence of 10 integers => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]', () => {
-        chai.assert.deepEqual(task7({ length: 10, }), [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
+      it('Success: returns Fibonacci sequence of 5 integers => [1, 1, 2, 3, 5]', () => {
+        chai.assert.deepEqual(task7({ length: 5, }), [1, 1, 2, 3, 5]);
+      });
+
+      it('Success: returns Fibonacci sequence of 12 integers => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]', () => {
+        chai.assert.deepEqual(task7({ length: 12, }), [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]);
       });
 
     });
