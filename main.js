@@ -149,8 +149,8 @@ document.querySelector('#tickets-btn').addEventListener('click', () => {
 
 // Task 6: Number Sequence
 document.querySelector('#sequence-btn').addEventListener('click', () => {
-  const sequenceLength = parseInt(document.querySelector('#sequence-length').value);
-  const sequenceStart = parseInt(document.querySelector('#sequence-start').value);
+  const sequenceLength = Number(document.querySelector('#sequence-length').value);
+  const sequenceStart = Number(document.querySelector('#sequence-start').value);
   const sequenceOutput = document.querySelector('#output-task6');
 
   const result = task6(sequenceLength, sequenceStart);
