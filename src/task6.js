@@ -1,26 +1,4 @@
-// Validation function
-const isValid = function checkArgs(sequenceLength, squaredNum) {
-  const maxSequenceLength = 100;
-
-  if (!sequenceLength && sequenceLength !== 0
-    || !squaredNum && squaredNum !== 0) {
-    return 'missingArgs';
-  }
-
-  if (typeof sequenceLength !== 'number' || typeof squaredNum !== 'number') {
-    return 'wrongDataType';
-  }
-
-  if (sequenceLength <= 0 || sequenceLength > maxSequenceLength
-    || !Number.isInteger(sequenceLength) || squaredNum <= 0) {
-    return 'invalidNum';
-  }
-
-  return 'valid';
-}
-
-// Main function
-export const task6 = function getNumSequence(sequenceLength, squaredNum) {
+export function task6(sequenceLength, squaredNum) {
   let validationStatus = isValid(sequenceLength, squaredNum);
 
   if (validationStatus === 'missingArgs') {
@@ -48,4 +26,25 @@ export const task6 = function getNumSequence(sequenceLength, squaredNum) {
 
     return numSequence.join(', ');
   }
+}
+
+// Validation function
+function isValid(sequenceLength, squaredNum) {
+  const maxSequenceLength = 100;
+
+  if (!sequenceLength && sequenceLength !== 0
+    || !squaredNum && squaredNum !== 0) {
+    return 'missingArgs';
+  }
+
+  if (typeof sequenceLength !== 'number' || typeof squaredNum !== 'number') {
+    return 'wrongDataType';
+  }
+
+  if (sequenceLength <= 0 || sequenceLength > maxSequenceLength
+    || !Number.isInteger(sequenceLength) || squaredNum <= 0) {
+    return 'invalidNum';
+  }
+
+  return 'valid';
 }

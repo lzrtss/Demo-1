@@ -1,53 +1,4 @@
-// Validation function
-const isValid = function checkArgs(obj = {}) {
-  if (
-    typeof obj === 'object' && obj instanceof Object
-    && typeof obj.min === 'number' && Number.isInteger(obj.min)
-    && typeof obj.max === 'number' && Number.isInteger(obj.max)
-    && obj.min >= 0 && obj.max > 0 && obj.min <= obj.max
-    && String(obj.min).length <= 6 && String(obj.max).length <= 6
-  ) {
-    return true;
-  }
-
-  return false;
-}
-
-// Function for checking lucky tickets using Simple method
-const isLuckySimple = function isLuckySimpleMethod(str) {
-  const mid = 3;
-  let leftSum = 0;
-  let rightSum = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    if (i < mid) {
-      leftSum += Number(str[i]);
-    } else {
-      rightSum += Number(str[i]);
-    }
-  }
-
-  return leftSum === rightSum;
-}
-
-// Function for checking lucky tickets using Complex method
-const isLuckyComplex = function isLuckyComplexMethod(str) {
-  let oddSum = 0;
-  let evenSum = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    if (i % 2 === 0) {
-      oddSum += Number(str[i]);
-    } else {
-      evenSum += Number(str[i]);
-    }
-  }
-
-  return oddSum === evenSum;
-}
-
-// Main function
-export const task5 = function countLuckyTickets(obj) {
+export function task5(obj) {
   if (isValid(obj)) {
     const [start, end] = [Number(obj.min), Number(obj.max)];
     const ticketLength = 6;
@@ -87,4 +38,52 @@ export const task5 = function countLuckyTickets(obj) {
     status: 'failed',
     reason: 'Invalid or missing argument(s): Argument is object with 2 properties (min, max). For values of both properties only integers between 0 and 999999 are allowed. \'Max\' value should be greater or equal to \'min\'.',
   }
+}
+
+// Function for checking lucky tickets using Simple method
+function isLuckySimple(str) {
+  const mid = 3;
+  let leftSum = 0;
+  let rightSum = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (i < mid) {
+      leftSum += Number(str[i]);
+    } else {
+      rightSum += Number(str[i]);
+    }
+  }
+
+  return leftSum === rightSum;
+}
+
+// Function for checking lucky tickets using Complex method
+function isLuckyComplex(str) {
+  let oddSum = 0;
+  let evenSum = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 0) {
+      oddSum += Number(str[i]);
+    } else {
+      evenSum += Number(str[i]);
+    }
+  }
+
+  return oddSum === evenSum;
+}
+
+// Validation function
+function isValid(obj = {}) {
+  if (
+    typeof obj === 'object' && obj instanceof Object
+    && typeof obj.min === 'number' && Number.isInteger(obj.min)
+    && typeof obj.max === 'number' && Number.isInteger(obj.max)
+    && obj.min >= 0 && obj.max > 0 && obj.min <= obj.max
+    && String(obj.min).length <= 6 && String(obj.max).length <= 6
+  ) {
+    return true;
+  }
+
+  return false;
 }

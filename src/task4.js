@@ -1,40 +1,4 @@
-// Validation function
-const isValid = function checkArgs(num) {
-  const maxLength = 100;
-
-  if (!num && num !== null && num !== 0 && !Number.isNaN(num)) {
-    return 'missingArgs';
-  }
-
-  if (typeof num !== 'string') {
-    return 'wrongDataType';
-  }
-
-  if (!Number(num) || num.length > maxLength) {
-    return 'invalidValue';
-  }
-
-  return 'valid';
-}
-
-// Checks if input array is palindrome
-const isPalindrome = function checkForPalindrome(arr) {
-  let start = 0;
-  let end = arr.length - 1;
-
-  while (start < end) {
-    if (arr[start] !== arr[end]) {
-      return false;
-    }
-    start += 1;
-    end -= 1;
-  }
-
-  return true;
-}
-
-// Main function
-export const task4 = function getPalindrome(num) {
+export function task4(num) {
   const validationStatus = isValid(num);
 
   if (validationStatus === 'missingArgs') {
@@ -77,4 +41,39 @@ export const task4 = function getPalindrome(num) {
 
     return maxPalindrome || 0;
   }
+}
+
+// Checks if input array is palindrome
+function isPalindrome(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start < end) {
+    if (arr[start] !== arr[end]) {
+      return false;
+    }
+    start += 1;
+    end -= 1;
+  }
+
+  return true;
+}
+
+// Validation function
+function isValid(num) {
+  const maxLength = 100;
+
+  if (!num && num !== null && num !== 0 && !Number.isNaN(num)) {
+    return 'missingArgs';
+  }
+
+  if (typeof num !== 'string') {
+    return 'wrongDataType';
+  }
+
+  if (!Number(num) || num.length > maxLength) {
+    return 'invalidValue';
+  }
+
+  return 'valid';
 }

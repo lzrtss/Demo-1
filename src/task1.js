@@ -1,33 +1,4 @@
-// Validation function
-const isValid = function validateArgs(height, width, symbol, ) {
-  const maxHeight = 50;
-  const maxWidth = 50;
-  const maxSymLength = 1;
-
-  if (!height || !width || !symbol) {
-    return 'missingArgs';
-  }
-
-  if (
-    typeof height !== 'number'
-    || typeof width !== 'number'
-    || typeof symbol !== 'string'
-  ) {
-    return 'wrongDataType';
-  }
-
-  if (
-    height < 0 || height > maxHeight || !Number.isInteger(height)
-    || width < 0 || width > maxWidth || !Number.isInteger(width)
-    || height % 2 !== 0 || width % 2 !== 0
-    || symbol.length > maxSymLength
-  ) {
-    return 'wrongValue';
-  }
-}
-
-// Main function
-export const task1 = function drawChessBoard(height, width, symbol) {
+export function task1(height, width, symbol) {
   const validationStatus = isValid(height, width, symbol);
 
   if (validationStatus === 'missingArgs') {
@@ -62,4 +33,32 @@ export const task1 = function drawChessBoard(height, width, symbol) {
   }
 
   return chessBoard;
+}
+
+// Validation function
+function isValid(height, width, symbol) {
+  const maxHeight = 50;
+  const maxWidth = 50;
+  const maxSymLength = 1;
+
+  if (!height || !width || !symbol) {
+    return 'missingArgs';
+  }
+
+  if (
+    typeof height !== 'number'
+    || typeof width !== 'number'
+    || typeof symbol !== 'string'
+  ) {
+    return 'wrongDataType';
+  }
+
+  if (
+    height < 0 || height > maxHeight || !Number.isInteger(height)
+    || width < 0 || width > maxWidth || !Number.isInteger(width)
+    || height % 2 !== 0 || width % 2 !== 0
+    || symbol.length > maxSymLength
+  ) {
+    return 'wrongValue';
+  }
 }
