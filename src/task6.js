@@ -18,14 +18,14 @@ export function task6(sequenceLength, squaredNum) {
       status: 'failed',
       reason: 'Wrong value of argument(s): 1st argument should have value between 1 and 100, 2d argument - between 1 and 1000000.',
     }
-  } else if (validationStatus === 'valid') {
-    const start = Math.ceil(Math.sqrt(squaredNum));
-    const numSequence = [];
-
-    for (let i = start; i < start + sequenceLength; i++) {
-      numSequence.push(i);
-    }
-
-    return numSequence.join(', ');
   }
+
+  const start = Math.ceil(Math.sqrt(squaredNum));
+  const numSequence = [];
+
+  for (let i = start; i < start + sequenceLength; i++) {
+    numSequence.push(i);
+  }
+
+  return numSequence.join(', ');
 }
